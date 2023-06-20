@@ -48,37 +48,14 @@ export default {
         },
         debug() {
             setInterval(() => {
-                this.createNotification({
-                    type: 0,
-                    duration: 7,
-                    title: 'Wystąpił błąd',
-                    message: 'test dłuższego tekstu o ile wiecie',
-                });
-                this.createNotification({
-                    type: 1,
-                    duration: 10,
-                    title: 'Wystąpił błąd',
-                    message:
-                        'test dłuższegohsdf djshf jksdh fsdjkhfsdjk dsf dsf sdf sdfsdfsdfhsdjkfhsdjkf tekstu o ile wiecie o co chodzi xd',
-                });
-                this.createNotification({
-                    type: 2,
-                    duration: 4,
-                    title: 'Wystąpił błąd',
-                    message: 'test dłuższego tekstu o ile wiecie o co chodzi xd',
-                });
-                this.createNotification({
-                    type: 3,
-                    duration: 1,
-                    title: 'Wystąpił błąd',
-                    message: 'test dłuższego tekstu o ile wiecie o co chodzi xd',
-                });
+                //Add notifications if u want to test it with browser
                 this.createNotification({
                     type: 4,
-                    duration: 5,
-                    title: 'Wystąpił błąd',
-                    message: 'test dłuższego tekstu o ile wiecie o co chodzi xd',
+                    duration: 7,
+                    title: 'Error',
+                    message: 'Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 });
+
             }, 4000);
         },
     },

@@ -12,8 +12,11 @@
 
 <script>
 import WebViewEvents from '@utility/webViewEvents';
-import { defineComponent, defineAsyncComponent } from 'vue';
 import Notification from './components/Notification.vue';
+
+import { defineAsyncComponent } from 'vue';
+import { NotifcationEvents } from '../shared/events';
+
 const ComponentName = 'Notifications';
 export default {
     name: ComponentName,
@@ -37,14 +40,13 @@ export default {
         },
         getNotificationsHistory() {
             console.log('[START] 📜 LAST SESSION NOTIFICATIONS');
-            this.notifications.forEach(element => {
-
-              console.log(element.title + ' | ' + element.message);
+            this.notifications.forEach((element) => {
+                console.log(element.title + ' | ' + element.message);
             });
             console.log('[END] 📜 LAST SESSION NOTIFICATIONS');
         },
-        clearAll(){
-            notifications = [];
+        clearAll() {
+            this.notifications = [];
         },
         debug() {
             setInterval(() => {
@@ -53,29 +55,29 @@ export default {
                     type: 4,
                     duration: 7,
                     title: 'Error',
-                    message: 'Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                    message:
+                        'Lorem ipsum dolor sit amet, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
                 });
-
             }, 4000);
         },
     },
     mounted() {
         if ('alt' in window) {
-            WebViewEvents.on('fnkynotifications-webview:create', this.createNotification);
-            WebViewEvents.on('fnkynotifications-webview:gethistory', this.getNotificationsHistory);
-            WebViewEvents.on('fnkynotifications-webview:clearall', this.clearAll);
+            WebViewEvents.on(NotifcationEvents.CREATE, this.createNotification);
+            WebViewEvents.on(NotifcationEvents.GET_HISTORY, this.getNotificationsHistory);
+            WebViewEvents.on(NotifcationEvents.CLEAR_ALL, this.clearAll);
             WebViewEvents.emitReady(ComponentName);
         } else {
-          this.debug();
+            this.debug();
         }
     },
-
 };
 </script>
 
 <style>
 #app {
-    font-family: Roboto, sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
 }
 
 .notification-container {

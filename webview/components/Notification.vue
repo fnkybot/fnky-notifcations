@@ -1,8 +1,9 @@
 <template>
     <transition name="notification-slide" @after-enter="afterEnter" @after-leave="afterLeave" appear>
         <div v-if="visible" class="notification">
-            <div v-if="showProgressBar"
-                :style="{ backgroundColor: getIconColor()}"
+            <div
+                v-if="showProgressBar"
+                :style="{ backgroundColor: getIconColor() }"
                 :class="{
                     [`notification-progress smooth-bar-${this.$props.duration / 1000}`]: progressValue > 0,
                 }"
@@ -11,13 +12,18 @@
             ></div>
 
             <div class="notification-icon">
-                <Icon :shadow="false" class="icon" :style="{ color: getIconColor() }" :icon="getIcon()" :size=18></Icon>
+                <Icon
+                    :shadow="false"
+                    class="icon"
+                    :style="{ color: getIconColor() }"
+                    :icon="getIcon()"
+                    :size="18"
+                ></Icon>
                 <div class="bar-shadow"></div>
             </div>
 
             <div class="notification-body">
-                <span class="body-title" v-html="$props.title"></span
-                ><br />
+                <span class="body-title" v-html="$props.title"></span><br />
                 <span class="body-message" v-html="$props.message"></span>
             </div>
         </div>
@@ -98,7 +104,6 @@ export default {
                 }
             }, this.$props.duration);
         },
-
     },
 };
 </script>
@@ -135,32 +140,32 @@ export default {
 }
 
 .notification-icon {
-  position: relative;
-  width: 20%;
+    position: relative;
+    width: 20%;
 }
 
 .bar-shadow {
-display: block;
-position: relative;
-margin-left: 0.3vw;
-width: 2.2vw;
-height: 2.2vw;
-border-radius: 50%;
-border: 2px solid rgba(0, 0, 0, 0.2);
-background: rgba(0, 0, 0, 0.5);
-box-shadow: inset 0px 0px 0px 6px rgba(0, 0, 0, 0.3);
-z-index: 50;
-mix-blend-mode: overlay;
+    display: block;
+    position: relative;
+    margin-left: 0.3vw;
+    width: 2.2vw;
+    height: 2.2vw;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 0px 0px 6px rgba(0, 0, 0, 0.3);
+    z-index: 50;
+    mix-blend-mode: overlay;
 }
 
 .icon {
-  position: absolute;
-  width: 2.2vw;
-  height: 2.2vw;
-  left: 50%;
-  top: 73%;
-  transform: translate(-50%, -50%);
-  font-size: 1vw !important;
+    position: absolute;
+    width: 2.2vw;
+    height: 2.2vw;
+    left: 50%;
+    top: 73%;
+    transform: translate(-50%, -50%);
+    font-size: 1vw !important;
 }
 
 .notification-body {
@@ -175,8 +180,8 @@ mix-blend-mode: overlay;
 }
 
 @font-face {
-  font-family: Oswald;
-  src: url(../assets/fonts/oswald.ttf) format("truetype");
+    font-family: Oswald;
+    src: url(../assets/fonts/oswald.ttf) format('truetype');
 }
 
 .body-title {
@@ -203,17 +208,36 @@ mix-blend-mode: overlay;
     z-index: 1;
 }
 
-
-.smooth-bar-1 {animation: load 1s normal forwards;}
-.smooth-bar-2 {animation: load 2s normal forwards;}
-.smooth-bar-3 {animation: load 3s normal forwards;}
-.smooth-bar-4 {animation: load 4s normal forwards;}
-.smooth-bar-5 {animation: load 5s normal forwards;}
-.smooth-bar-6 {animation: load 6s normal forwards;}
-.smooth-bar-7 {animation: load 7s normal forwards;}
-.smooth-bar-8 {animation: load 8s normal forwards;}
-.smooth-bar-9 {animation: load 9s normal forwards;}
-.smooth-bar-10 {animation: load 10s normal forwards;}
+.smooth-bar-1 {
+    animation: load 1s normal forwards;
+}
+.smooth-bar-2 {
+    animation: load 2s normal forwards;
+}
+.smooth-bar-3 {
+    animation: load 3s normal forwards;
+}
+.smooth-bar-4 {
+    animation: load 4s normal forwards;
+}
+.smooth-bar-5 {
+    animation: load 5s normal forwards;
+}
+.smooth-bar-6 {
+    animation: load 6s normal forwards;
+}
+.smooth-bar-7 {
+    animation: load 7s normal forwards;
+}
+.smooth-bar-8 {
+    animation: load 8s normal forwards;
+}
+.smooth-bar-9 {
+    animation: load 9s normal forwards;
+}
+.smooth-bar-10 {
+    animation: load 10s normal forwards;
+}
 
 @keyframes load {
     0% {
@@ -225,14 +249,13 @@ mix-blend-mode: overlay;
 }
 
 @media only screen and (max-width: 1284px) {
-  .notification-icon {
-    display: none;
-
-  }
-  .notification-body{
-    width: 100%;
-    margin-left: 0.8vw;
-  }
+    .notification-icon {
+        display: none;
+    }
+    .notification-body {
+        width: 100%;
+        margin-left: 0.8vw;
+    }
 }
 </style>
 ../utils/config
